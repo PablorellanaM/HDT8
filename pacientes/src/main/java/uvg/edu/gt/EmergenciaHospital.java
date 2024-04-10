@@ -2,16 +2,28 @@ package uvg.edu.gt;
 
 import java.util.Scanner;
 
+/**
+ * Clase principal que proporciona un menú interactivo para manejar la cola de
+ * pacientes en una emergencia hospitalaria.
+ */
 public class EmergenciaHospital {
 
     private VectorHeap<Paciente> colaPacientes;
     private Scanner scanner;
 
+    /**
+     * Constructor que inicializa la cola de prioridades de pacientes y el scanner
+     * para entrada de datos.
+     */
     public EmergenciaHospital() {
         colaPacientes = new VectorHeap<>();
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Muestra un menú interactivo para ingresar nuevos pacientes, mostrar el
+     * siguiente paciente a atender o salir del programa.
+     */
     public void mostrarMenu() {
         String opcion;
         do {
@@ -38,6 +50,10 @@ public class EmergenciaHospital {
         } while (!opcion.equals("3"));
     }
 
+    /**
+     * Permite al usuario ingresar la información de un nuevo paciente y lo añade a
+     * la cola de prioridades.
+     */
     private void ingresarPaciente() {
         System.out.print("Ingrese el nombre del paciente: ");
         String nombre = scanner.nextLine();
@@ -60,6 +76,10 @@ public class EmergenciaHospital {
         System.out.println("Paciente ingresado con éxito.");
     }
 
+    /**
+     * Muestra el siguiente paciente a atender según la prioridad y lo retira de la
+     * cola.
+     */
     private void mostrarSiguientePaciente() {
         if (!colaPacientes.isEmpty()) {
             Paciente siguiente = colaPacientes.remove();
@@ -72,6 +92,12 @@ public class EmergenciaHospital {
         }
     }
 
+    /**
+     * El punto de entrada del programa. Crea una instancia de EmergenciaHospital y
+     * muestra el menú.
+     * 
+     * @param args Argumentos de línea de comandos (no se utilizan).
+     */
     public static void main(String[] args) {
         EmergenciaHospital programa = new EmergenciaHospital();
         programa.mostrarMenu();

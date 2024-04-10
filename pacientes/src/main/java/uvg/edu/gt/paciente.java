@@ -9,11 +9,11 @@ public class Paciente implements Comparable<Paciente> {
     private char codigoEmergencia;
 
     /**
-     * Crea un nuevo paciente con los detalles proporcionados.
+     * Constructor para crear un nuevo paciente.
      * 
      * @param nombre           Nombre del paciente.
-     * @param sintoma          Descripción del síntoma del paciente.
-     * @param codigoEmergencia Código de emergencia que indica la prioridad de
+     * @param sintoma          Síntoma del paciente.
+     * @param codigoEmergencia Código de emergencia que determina la prioridad de
      *                         atención.
      */
     public Paciente(String nombre, String sintoma, char codigoEmergencia) {
@@ -23,17 +23,19 @@ public class Paciente implements Comparable<Paciente> {
     }
 
     /**
-     * Compara este paciente con otro para determinar la prioridad en la cola.
+     * Compara este paciente con otro paciente para determinar la prioridad en la
+     * cola.
      * 
-     * @param otro El paciente con el que comparar.
+     * @param otro El paciente con el que se compara.
      * @return Un valor negativo si este paciente tiene mayor prioridad, cero si es
-     *         la misma prioridad, o un valor positivo si tiene menor prioridad.
+     *         la misma, o un valor positivo si es menor.
      */
     @Override
     public int compareTo(Paciente otro) {
         return Character.compare(this.codigoEmergencia, otro.codigoEmergencia);
     }
 
+    // Getters
     public String getNombre() {
         return nombre;
     }
@@ -44,5 +46,18 @@ public class Paciente implements Comparable<Paciente> {
 
     public char getCodigoEmergencia() {
         return codigoEmergencia;
+    }
+
+    // Setters
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setSintoma(String sintoma) {
+        this.sintoma = sintoma;
+    }
+
+    public void setCodigoEmergencia(char codigoEmergencia) {
+        this.codigoEmergencia = codigoEmergencia;
     }
 }
