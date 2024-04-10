@@ -22,10 +22,27 @@ public class Paciente implements Comparable<Paciente> {
         this.codigoEmergencia = codigoEmergencia;
     }
 
+    /**
+     * Compara este paciente con otro para determinar la prioridad en la cola.
+     * 
+     * @param otro El paciente con el que comparar.
+     * @return Un valor negativo si este paciente tiene mayor prioridad, cero si es
+     *         la misma prioridad, o un valor positivo si tiene menor prioridad.
+     */
     @Override
-    public int compareTo(Paciente o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    public int compareTo(Paciente otro) {
+        return Character.compare(this.codigoEmergencia, otro.codigoEmergencia);
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getSintoma() {
+        return sintoma;
+    }
+
+    public char getCodigoEmergencia() {
+        return codigoEmergencia;
+    }
 }
