@@ -22,4 +22,10 @@ public class Paciente implements Comparable<Paciente> {
         this.codigoEmergencia = codigoEmergencia;
     }
 
+    @Override
+    public int compareTo(Paciente o) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    }
+
 }
